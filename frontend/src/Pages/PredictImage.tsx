@@ -13,12 +13,33 @@ export default function PredictImage() {
   const [error, setError] = useState("")
   const [open, setOpen] = useState(false)
 
-  const supportedSpecies = [
-    "Greater Coucal",
-    "Indian Flying Fox",
-    "House Crow",
-    "Common Myna",
-  ]
+const supportedSpecies = [
+  "Asian Green Bee Eater",
+  "Brown Headed Barbet",
+  "Cattle Egret",
+  "Common Kingfisher",
+  "Common Myna",
+  "Common Rosefinch",
+  "Common Tailorbird",
+  "Coppersmith Barbet",
+  "Forest Wagtail",
+  "Gray Wagtail",
+  "Hoopoe",
+  "House Crow",
+  "Indian Grey Hornbill",
+  "Indian Peacock",
+  "Indian Pitta",
+  "Indian Roller",
+  "Jungle Babbler",
+  "Northern Lapwing",
+  "Red Wattled Lapwing",
+  "Ruddy Shelduck",
+  "Rufous Treepie",
+  "Sarus Crane",
+  "White Breasted Kingfisher",
+  "White Breasted-Waterhen",
+  "White Wagtail",
+]
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const selected = e.target.files?.[0]
@@ -70,7 +91,7 @@ export default function PredictImage() {
   }
 
   return (
-    <div className="size-full flex flex-col items-center justify-center px-4">
+    <div className="size-full flex flex-col items-center justify-center">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-[#0d1f14] border border-green-900 rounded-xl p-6"

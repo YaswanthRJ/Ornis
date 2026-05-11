@@ -33,7 +33,7 @@ export function InfoModal({ supportedSpecies, open, onClose }: Props) {
         </div>
 
         {/* Content */}
-        <div className="max-h-[55vh] overflow-y-auto">
+        <div className="max-h-[55vh] overflow-y-auto no-scrollbar">
           <ul className="space-y-2 text-sm text-green-200">
             {supportedSpecies.map((s, i) => (
               <li key={i} className="px-3 py-2 rounded-lg bg-green-900/20">

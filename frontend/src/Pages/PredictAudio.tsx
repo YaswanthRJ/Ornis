@@ -13,12 +13,23 @@ export default function PredictAudio() {
   const [error, setError] = useState("")
   const [open, setOpen] = useState(false)
 
-  const supportedSpecies = [
-    "Greater Coucal",
-    "Indian Flying Fox",
-    "House Crow",
-    "Common Myna",
-  ]
+const supportedSpecies = [
+  "Asian koel",
+  "Black kite",
+  "Common Hawk Cuckoo",
+  "Common Tailorbird",
+  "Coppersmith Barbet",
+  "Greater Coucal",
+  "House Crow",
+  "Indian Cuckoo",
+  "Indian Peafowl",
+  "Jungle Babbler",
+  "Pied Bush Chat",
+  "Red junglefowl",
+  "Rose Ringed Parakeet",
+  "Throated Kingfisher",
+  "White breasted Waterhen",
+]
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const selected = e.target.files?.[0]
