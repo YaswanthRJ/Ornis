@@ -7,6 +7,7 @@ interface SidebarProps {
 }
 
 const navItems = [
+  { label: "Home", path: "/" },
   { label: "Image", path: "/image" },
   { label: "Audio", path: "/audio" },
 ]
@@ -35,7 +36,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="h-16 border-b border-white/10 flex items-center px-4">
           <button
             onClick={onClose}
-            className="text-white/60 hover:text-white transition"
           >
             ✕
           </button>
@@ -47,7 +47,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               key={item.label}
               to={item.path}
               onClick={onClose}
-              className="px-4 py-3 rounded-md text-white/70 hover:bg-white/5 hover:text-white transition"
+              className="px-2 py-2 rounded-md text-sm"
             >
               {item.label}
             </Link>
