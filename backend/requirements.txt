@@ -8,3 +8,4 @@ noisereduce
 soundfile
 numpy
 matplotlib
+python-multipart
