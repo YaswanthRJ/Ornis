@@ -1,6 +1,8 @@
 import { useRef, useState } from "react"
 import { predictAudio } from "../service/api"
-import { Upload, Trash2 } from "lucide-react"
+import { Upload, Trash2, Info } from "lucide-react"
+import { Link } from "react-router-dom"
+import { InfoModal } from "../components/InfoModal"
 
 export default function PredictAudio() {
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -9,6 +11,14 @@ export default function PredictAudio() {
   const [loading, setLoading] = useState(false)
   const [prediction, setPrediction] = useState("")
   const [error, setError] = useState("")
+  const [open, setOpen] = useState(false)
+
+  const supportedSpecies = [
+    "Greater Coucal",
+    "Indian Flying Fox",
+    "House Crow",
+    "Common Myna",
+  ]
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const selected = e.target.files?.[0]
@@ -60,14 +70,21 @@ export default function PredictAudio() {
   }
 
   return (
-    <div className="size-full flex items-center justify-center">
+    <div className="size-full flex flex-col items-center justify-center">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-[#0d1f14] border border-green-900 rounded-xl p-6"
       >
-        <p className="font-semibold text-green-300 mb-5">
-          Predict Audio
-        </p>
+        <div className="flex justify-between items-center mb-4">
+          <p className="">Predict Audio</p>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="p-2 rounded-md hover:bg-green-900/40 transition"
+          >
+            <Info size={18} className="text-green-400" />
+          </button>
+        </div>
 
         <input
           ref={inputRef}
@@ -80,7 +97,7 @@ export default function PredictAudio() {
         {/* Upload Row */}
         <div className="flex items-start justify-between gap-4 mb-4">
           {/* Fixed filename space (no shift) */}
-          <p className="text-sm text-green-200 leading-snug h-10 overflow-hidden flex-1">
+          <p className="text-sm leading-snug h-10 overflow-hidden flex-1">
             {file ? file.name : "No file selected"}
           </p>
 
@@ -122,6 +139,12 @@ export default function PredictAudio() {
           {loading ? "Processing..." : "Submit"}
         </button>
       </form>
+      <Link className="text-sm my-2" to={"/image"}>Upload an image</Link>
+      <InfoModal
+        open={open}
+        onClose={() => setOpen(false)}
+        supportedSpecies={supportedSpecies}
+      />
     </div>
   )
 }
