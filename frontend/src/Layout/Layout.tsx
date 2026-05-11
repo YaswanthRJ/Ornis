@@ -19,7 +19,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       />
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
       <main className="flex-1 pt-16">
-        <div className="max-w-5xl mx-auto px-4 md:px-8 py-10">
+        <div className="size-full px-4 md:px-8 py-10">
           {children}
         </div>
       </main>
